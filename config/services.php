@@ -40,4 +40,14 @@ return [
         'key'   => env('BAIDU_TRANSLATE_KEY'),
     ],
 
+    /*
+        weixin config
+        fnn 2018/3/20 23:20
+    */
+    'weixin' => [
+        'client_id' => env('WEIXIN_KEY'),
+        'client_secret' => env('WEIXIN_SECRET'),
+        'redirect' => env('WEIXIN_REDIRECT_URI'),
+    ],
+
 ];

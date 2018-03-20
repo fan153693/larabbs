@@ -28,8 +28,6 @@ class VerificationCodesController extends Controller
         $phone = $captchaData['phone'];
 
 
-
-
         if(!app()->environment('production'))
         {
             $code = '1234';
@@ -53,6 +51,8 @@ class VerificationCodesController extends Controller
         $expiredAt = now()->addMinutes(10);
         //缓存验证码，十分钟过期
         \Cache::put($key, ['phone' => $phone, 'code' => $code], $expiredAt);
+        //清除图片验证码缓存
+        \Cache::forget($request->captcha_key);
 
         return $this->response->array([
             //'test_message' => 'store verification code'
