@@ -83,6 +83,10 @@ $api->version('v1', [
             $api->delete('topics/{topic}/replies/{reply}', 'RepliesController@destroy')->name('api.topics.replies.destroy');
             //获取当前登录用户的消息通知
             $api->get('user/notifications', 'NotificationsController@index')->name('api.user.notifications.index');
+            //获取用户的未读通知统计
+            $api->get('user/notifications/stats', 'NotificationsController@stats')->name('api.user.notifications.stats');
+            //通知标为已读
+            $api->patch('user/read/notifications', 'NotificationsController@read')->name('api.user.notifications.read');
 
         });
 
